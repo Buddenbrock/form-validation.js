@@ -2,7 +2,7 @@ class FormValidation {
     constructor(options = {}) {
         this.form = {
             formValidationClass: options.formValidationClass || "validate",
-            filedInvalideClass: options.filedInvalideClass || "invalid",
+            filedInvalidClass: options.filedInvalidClass || "invalid",
 
             // field expressions
             emailExp: options.emailExp || /^[^\s()<>@,;:\/]+@\w[\w.-]+\.[a-z]{2,}$/i,
@@ -114,7 +114,7 @@ class FormValidation {
             inputError = false;
 
         // @TODO: Add mechanic for checking if field is required or only checked if contains content
-        // @TODO: Add expression to all validattion types
+        // @TODO: Add expression to all validation types
         // @TODO: Add input:date
         // @TODO: Add input:datetime
         // @TODO: Add input:time
@@ -376,7 +376,7 @@ class FormValidation {
         let fieldset = this.getFieldset(input),
             error = this.getError(fieldset);
 
-        this.addClassOnElement(fieldset, this.form.filedInvalideClass);
+        this.addClassOnElement(fieldset, this.form.filedInvalidClass);
 
         if (error !== undefined && error !== null) {
             this.removeClassOnElement(error, "d-none");
@@ -394,7 +394,7 @@ class FormValidation {
         let fieldset = this.getFieldset(input),
             error = this.getError(fieldset);
 
-        this.removeClassOnElement(fieldset, this.form.filedInvalideClass);
+        this.removeClassOnElement(fieldset, this.form.filedInvalidClass);
 
         if (error !== undefined && error !== null) {
             this.removeClassOnElement(error, "d-none");
