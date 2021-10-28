@@ -1,26 +1,35 @@
 class FormValidation {
     constructor(options = {}) {
         this.form = {
+            // class settings
             formValidationClass: options.formValidationClass || "validate",
-            filedInvalidClass: options.filedInvalidClass || "invalid",
+            fieldInvalidClass: options.fieldInvalidClass || "invalid",
+            fieldWrapperClass: options.fieldWrapperClass || "form-group",
+            errorClass: options.errorClass || "error",
+            hideErrorClass: options.hideErrorClass || "d-none",
+
+            // error messages
+            errorFallbackMessage: options.errorFallbackMessage || "wrong Input",
 
             // field expressions
-            emailExp: options.emailExp || /^[^\s()<>@,;:\/]+@\w[\w.-]+\.[a-z]{2,}$/i,
-            phoneExp: options.phoneExp || /^[0-9]{2,5}( )?([0-9]{4,9})$/i,
-            passwordExp: options.passwordExp || /^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><:{}[]$/i,
-            passwordMinLen: options.passwordMinLen || 6,
-            passwordMaxLen: options.passwordMaxLen || 20,
+            expression: {
+                email: options.expression.email || /^[^\s()<>@,;:\/]+@\w[\w.-]+\.[a-z]{2,}$/i,
+                phone: options.expression.phone || /^[0-9]{2,5}( )?([0-9]{4,9})$/i,
+                password: options.expression.password || /^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><:{}[]$/i,
+                passwordMinLen: options.expression.passwordMinLen || 6,
+                passwordMaxLen: options.expression.passwordMaxLen || 20,
+            },
 
-            // Google recaptcha
-            recaptcha: options.recaptcha || true,
-            recaptchaClass: options.recaptchaClass || "g-recaptcha"
+            // google recaptcha
+            recaptcha: {
+                disabled: options.recaptcha.status || false,
+                class: options.recaptcha.class || "g-recaptcha"
+            }
         };
 
         if (document.querySelector('.' + this.form.formValidationClass)) {
             this.initValidation();
         }
-
-        // Changes also needed in this.getFieldset() while condition
     }
 
 
@@ -36,7 +45,7 @@ class FormValidation {
         this.getSubmitButton();
         this.form.element.addEventListener("submit", this.formSubmit.bind(this));
 
-        if(this.form.recaptcha && document.querySelector('.' + this.form.recaptchaClass)) {
+        if(!this.form.recaptcha.disabled && document.querySelector('.' + this.form.recaptcha.class)) {
             this.initializeRecaptcha();
         }
 
@@ -214,7 +223,7 @@ class FormValidation {
      * @returns {boolean}
      */
     ruleEmail = (input, inputError) => {
-        if (!this.form.emailExp.test(input.value)) {
+        if (!this.form.expression.email.test(input.value)) {
             inputError = true;
         }
 
@@ -228,7 +237,7 @@ class FormValidation {
      * @returns {boolean}
      */
     rulePhone = (input, inputError) => {
-        if (input.value.length > 0 && !this.form.phoneExp.test(input.value)) {
+        if (input.value.length > 0 && !this.form.expression.phone.test(input.value)) {
             inputError = true;
         }
 
@@ -311,9 +320,7 @@ class FormValidation {
     getFieldset = (input) => {
         let fieldset = input.parentElement;
 
-        console.log(fieldset);
-
-        while (!fieldset.classList.contains('form-group')) {
+        while (!fieldset.classList.contains(this.form.fieldWrapperClass)) {
             fieldset = fieldset.parentElement;
         }
 
@@ -326,7 +333,7 @@ class FormValidation {
      * @returns {*}
      */
     getError = (fieldset) => {
-        return fieldset.querySelector(".error");
+        return fieldset.querySelector("." + this.form.errorClass);
     };
 
     /**
@@ -337,10 +344,10 @@ class FormValidation {
     createError = (input) => {
         let error = document.createElement("div");
 
-        error.className = "error";
+        error.className = this.form.errorClass;
         error.setAttribute("role", "alert");
         error.innerText =
-            input.dataset["msg"] !== undefined ? input.dataset["msg"] : "wrong Input";
+            input.dataset["msg"] !== undefined ? input.dataset["msg"] : this.form.errorFallbackMessage;
 
         return error;
     };
@@ -376,10 +383,10 @@ class FormValidation {
         let fieldset = this.getFieldset(input),
             error = this.getError(fieldset);
 
-        this.addClassOnElement(fieldset, this.form.filedInvalidClass);
+        this.addClassOnElement(fieldset, this.form.fieldInvalidClass);
 
         if (error !== undefined && error !== null) {
-            this.removeClassOnElement(error, "d-none");
+            this.removeClassOnElement(error, this.form.hideErrorClass);
         } else {
             error = this.createError(input);
             this.insertError(input, error);
@@ -394,11 +401,11 @@ class FormValidation {
         let fieldset = this.getFieldset(input),
             error = this.getError(fieldset);
 
-        this.removeClassOnElement(fieldset, this.form.filedInvalidClass);
+        this.removeClassOnElement(fieldset, this.form.fieldInvalidClass);
 
         if (error !== undefined && error !== null) {
-            this.removeClassOnElement(error, "d-none");
-            this.addClassOnElement(error, "d-none");
+            this.removeClassOnElement(error, this.form.hideErrorClass);
+            this.addClassOnElement(error, this.form.hideErrorClass);
         }
     };
 
@@ -407,7 +414,7 @@ class FormValidation {
      */
     initializeRecaptcha = () => {
         window.grecaptcha.ready(() => {
-            this.recaptcha = this.form.element.querySelector('.' + this.form.recaptchaClass);
+            this.recaptcha = this.form.element.querySelector('.' + this.form.recaptcha.class);
 
             if (this.recaptcha) {
                 if (this.recaptcha.childElementCount === 0) {
@@ -451,7 +458,7 @@ class FormValidation {
      */
     getRecaptchaField = () => {
         let field,
-            recaptchaElement = this.form.element.querySelector('.' + this.form.recaptchaClass);
+            recaptchaElement = this.form.element.querySelector('.' + this.form.recaptcha.class);
 
         if (recaptchaElement) {
             field = document.getElementById(recaptchaElement.dataset["fieldId"]);
