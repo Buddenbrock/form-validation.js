@@ -70,7 +70,7 @@ class FormValidation {
      * @desc stops submit process focus first error field
      * @param event
      */
-    formSubmit = (event) => {
+    formSubmit = event => {
         if (!this.validateFormData()) {
             event.preventDefault();
             this.focusFirstErrorField();
@@ -109,7 +109,7 @@ class FormValidation {
      * @desc triggers field validation of given field
      * @param event
      */
-    validateOnChange = (event) => {
+    validateOnChange = event => {
         this.validateSingleInput(event.target);
     };
 
@@ -118,7 +118,7 @@ class FormValidation {
      * @param input
      * @returns {boolean}
      */
-    validateSingleInput = (input) => {
+    validateSingleInput = input => {
         let rule = input.dataset["rule"],
             required = input.dataset["required"],
             exp,
@@ -143,7 +143,7 @@ class FormValidation {
             [rule, exp] = rule.split(":");
             switch (rule) {
                 case "required":
-                    inputError = this.ruleRequired(input, inputError);
+                    inputError = this.ruleRequired(input, exp, inputError);
                     break;
 
                 case "minlen":
@@ -151,23 +151,23 @@ class FormValidation {
                     break;
 
                 case "email":
-                    inputError = this.ruleEmail(input, inputError);
+                    inputError = this.ruleEmail(input, exp, inputError);
                     break;
 
                 case "phone":
-                    inputError = this.rulePhone(input, inputError);
+                    inputError = this.rulePhone(input, exp, inputError);
                     break;
 
                 case "checked":
-                    inputError = this.ruleChecked(input, inputError);
+                    inputError = this.ruleChecked(input, exp, inputError);
                     break;
 
                 case "radio":
-                    inputError = this.ruleRadio(input, inputError);
+                    inputError = this.ruleRadio(input, exp, inputError);
                     break;
 
                 case "selected":
-                    inputError = this.ruleSelected(input, inputError);
+                    inputError = this.ruleSelected(input, exp, inputError);
                     break;
 
                 case "regexp":
@@ -175,7 +175,7 @@ class FormValidation {
                     break;
 
                 case "recaptcha":
-                    inputError = this.ruleRequired(input, inputError);
+                    inputError = this.ruleRequired(input, exp, inputError);
                     break;
             }
 
@@ -192,10 +192,11 @@ class FormValidation {
     /**
      * @desc checks given field if value is empty
      * @param input
+     * @param exp
      * @param inputError
      * @returns {boolean}
      */
-    ruleRequired = (input, inputError) => {
+    ruleRequired = (input, exp, inputError) => {
         if (input.value === "") {
             inputError = true;
         }
@@ -221,10 +222,11 @@ class FormValidation {
     /**
      * @desc checks given field if value matches given email regEx
      * @param input
+     * @param exp
      * @param inputError
      * @returns {boolean}
      */
-    ruleEmail = (input, inputError) => {
+    ruleEmail = (input, exp, inputError) => {
         if (!this.form.expression.email.test(input.value)) {
             inputError = true;
         }
@@ -235,10 +237,11 @@ class FormValidation {
     /**
      * @desc checks given field if value matches given phone number regEx
      * @param input
+     * @param exp
      * @param inputError
      * @returns {boolean}
      */
-    rulePhone = (input, inputError) => {
+    rulePhone = (input, exp, inputError) => {
         if (input.value.length > 0 && !this.form.expression.phone.test(input.value)) {
             inputError = true;
         }
@@ -249,10 +252,11 @@ class FormValidation {
     /**
      * @desc checks given field if field is checked
      * @param input
+     * @param exp
      * @param inputError
      * @returns {boolean}
      */
-    ruleChecked = (input, inputError) => {
+    ruleChecked = (input, exp, inputError) => {
         if (!input.checked) {
             inputError = true;
         }
@@ -263,10 +267,11 @@ class FormValidation {
     /**
      * @desc checks given field if input item selected
      * @param input
+     * @param exp
      * @param inputError
      * @returns {boolean}
      */
-    ruleRadio = (input, inputError) => {
+    ruleRadio = (input, exp, inputError) => {
         let radioGroup = Array.from(
             document.querySelectorAll(`[name="${input.name}"]`)
         );
@@ -284,10 +289,11 @@ class FormValidation {
     /**
      * @desc checks given field if option is selected
      * @param input
+     * @param exp
      * @param inputError
      * @returns {boolean}
      */
-    ruleSelected = (input, inputError) => {
+    ruleSelected = (input, exp, inputError) => {
         let value = input.options[input.selectedIndex].value;
 
         if (value === "") {
@@ -319,7 +325,7 @@ class FormValidation {
      * @param input
      * @returns {HTMLElement}
      */
-    getFieldset = (input) => {
+    getFieldset = input => {
         let fieldset = input.parentElement;
 
         while (!fieldset.classList.contains(this.form.fieldWrapperClass)) {
@@ -334,7 +340,7 @@ class FormValidation {
      * @param fieldset
      * @returns {*}
      */
-    getError = (fieldset) => {
+    getError = fieldset => {
         return fieldset.querySelector("." + this.form.errorClass);
     };
 
@@ -343,7 +349,7 @@ class FormValidation {
      * @param input
      * @returns {HTMLDivElement}
      */
-    createError = (input) => {
+    createError = input => {
         let error = document.createElement("div");
 
         error.className = this.form.errorClass;
@@ -381,7 +387,7 @@ class FormValidation {
      * @desc show error message for given field
      * @param input
      */
-    showError = (input) => {
+    showError = input => {
         let fieldset = this.getFieldset(input),
             error = this.getError(fieldset);
 
@@ -399,7 +405,7 @@ class FormValidation {
      * @desc hide error message for given field
      * @param input
      */
-    hideError = (input) => {
+    hideError = input => {
         let fieldset = this.getFieldset(input),
             error = this.getError(fieldset);
 
