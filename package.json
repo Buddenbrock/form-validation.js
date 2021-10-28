@@ -1,0 +1,26 @@
+{
+  "name": "@buddenbrock/form-validation.js",
+  "description": "Javascript for adding a frontend form validation",
+  "version": "0.0.1",
+  "keywords": [
+    "form",
+    "validation",
+    "javascript"
+  ],
+  "author": "Dirk Buddenbrock <git@dirk-buddenbrock.de>",
+  "contributors": [
+    {
+      "name": "CP/COMPARTNER",
+      "url": "https://www.cp-compartner.de"
+    }
+  ],
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Buddenbrock/form-validation.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Buddenbrock/form-validation.js/issues"
+  },
+  "license": "GPL-3.0"
+}
