@@ -474,7 +474,7 @@ class FormValidation {
      * @param newNode
      * @param existingNode
      */
-    insertAfter(newNode, existingNode) {
+    insertAfter = (newNode, existingNode) => {
         existingNode.parentNode.append(newNode);
     }
 
