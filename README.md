@@ -44,7 +44,7 @@ Define your options. These given options are defaults.
     
         // Google recaptcha
         recaptcha: true, // Enable/Disable validation for google recaptcha
-        recaptchaClass: ".g-recaptcha",
+        recaptchaClass: "g-recaptcha",
     });
 ````
 

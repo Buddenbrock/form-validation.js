@@ -13,7 +13,7 @@ class FormValidation {
 
             // Google recaptcha
             recaptcha: options.recaptcha || true,
-            recaptchaClass: options.recaptchaClass || ".g-recaptcha"
+            recaptchaClass: options.recaptchaClass || "g-recaptcha"
         };
 
         if (document.querySelector('.' + this.form.formValidationClass)) {
@@ -31,12 +31,12 @@ class FormValidation {
         let inputEventListenerTypes = ["blur", "change", "keyup"];
 
         this.form.element = document.querySelector('.' + this.form.formValidationClass);
-        this.form.inputs = this.form.element.querySelectorAll("input, textarea, select");
+        this.form.inputs = this.form.element.querySelectorAll('input, textarea, select');
 
         this.getSubmitButton();
         this.form.element.addEventListener("submit", this.formSubmit.bind(this));
 
-        if(this.form.recaptcha && document.querySelector(this.form.recaptchaClass)) {
+        if(this.form.recaptcha && document.querySelector('.' + this.form.recaptchaClass)) {
             this.initializeRecaptcha();
         }
 
@@ -407,9 +407,7 @@ class FormValidation {
      */
     initializeRecaptcha = () => {
         window.grecaptcha.ready(() => {
-            this.recaptcha = this.form.element.querySelector(
-                this.form.recaptchaClass
-            );
+            this.recaptcha = this.form.element.querySelector('.' + this.form.recaptchaClass);
 
             if (this.recaptcha) {
                 if (this.recaptcha.childElementCount === 0) {
@@ -453,7 +451,7 @@ class FormValidation {
      */
     getRecaptchaField = () => {
         let field,
-            recaptchaElement = this.form.element.querySelector(this.form.recaptchaClass);
+            recaptchaElement = this.form.element.querySelector('.' + this.form.recaptchaClass);
 
         if (recaptchaElement) {
             field = document.getElementById(recaptchaElement.dataset["fieldId"]);
