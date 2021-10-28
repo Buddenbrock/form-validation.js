@@ -47,9 +47,11 @@ Define your options. These given options are defaults.
         expression: {
             email: /^[^\s()<>@,;:\/]+@\w[\w.-]+\.[a-z]{2,}$/i,
             phone: /^[0-9]{2,5}( )?([0-9]{4,9})$/i,
-            password: /^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><:{}[]$/i,
-            passwordMinLen: 6,
-            passwordMaxLen: 20,   
+            password: {
+                passwordEx: /^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><:{}[]$/i,
+                passwordMinLen: 6,
+                passwordMaxLen: 20,
+            },
         },
     
         // google recaptcha

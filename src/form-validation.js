@@ -15,9 +15,11 @@ class FormValidation {
             expression: {
                 email: options.expression.email || /^[^\s()<>@,;:\/]+@\w[\w.-]+\.[a-z]{2,}$/i,
                 phone: options.expression.phone || /^[0-9]{2,5}( )?([0-9]{4,9})$/i,
-                password: options.expression.password || /^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><:{}[]$/i,
-                passwordMinLen: options.expression.passwordMinLen || 6,
-                passwordMaxLen: options.expression.passwordMaxLen || 20,
+                password: {
+                    passwordExp:options.expression.password.passwordExp || /^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><:{}[]$/i,
+                    passwordMinLen: options.expression.password.passwordMinLen || 6,
+                    passwordMaxLen: options.expression.password.passwordMaxLen || 20,
+                },
             },
 
             // google recaptcha
