@@ -1,15 +1,17 @@
-class FormValidation {
+class FormValidationController {
     constructor(options = {}) {
         this.form = {
             // class settings
-            formValidationClass: options.formValidationClass || "validate",
-            fieldInvalidClass: options.fieldInvalidClass || "invalid",
-            fieldWrapperClass: options.fieldWrapperClass || "form-group",
-            errorClass: options.errorClass || "error",
-            hideErrorClass: options.hideErrorClass || "d-none",
+            classes: {
+                formValidation: options.classes.formValidation || "validate",
+                invalidField: options.classes.invalidField || "invalid",
+                fieldWrapper: options.classes.fieldWrapper || "form-group",
+                error: options.classes.error || "error",
+                hideError: options.classes.hideError || "d-none",
+            },
 
             // error messages
-            errorFallbackMessage: options.errorFallbackMessage || "wrong Input",
+            errorFallbackMessage: options.errorFallbackMessage || "Please check this field",
 
             // field expressions
             expression: {
@@ -29,11 +31,10 @@ class FormValidation {
             }
         };
 
-        if (document.querySelector('.' + this.form.formValidationClass)) {
+        if (document.querySelector('.' + this.form.classes.formValidation)) {
             this.initValidation();
         }
     }
-
 
     /**
      * @desc init validation
@@ -41,7 +42,7 @@ class FormValidation {
     initValidation = () => {
         let inputEventListenerTypes = ["blur", "change", "keyup"];
 
-        this.form.element = document.querySelector('.' + this.form.formValidationClass);
+        this.form.element = document.querySelector('.' + this.form.classes.formValidation);
         this.form.inputs = this.form.element.querySelectorAll('input, textarea, select');
 
         this.getSubmitButton();
@@ -50,7 +51,6 @@ class FormValidation {
         if(!this.form.recaptcha.disabled && document.querySelector('.' + this.form.recaptcha.class)) {
             this.initializeRecaptcha();
         }
-
 
         Array.from(this.form.inputs).forEach((input) => {
             inputEventListenerTypes.forEach((type) => {
@@ -328,7 +328,7 @@ class FormValidation {
     getFieldset = input => {
         let fieldset = input.parentElement;
 
-        while (!fieldset.classList.contains(this.form.fieldWrapperClass)) {
+        while (!fieldset.classList.contains(this.form.classes.fieldWrapper)) {
             fieldset = fieldset.parentElement;
         }
 
@@ -341,7 +341,7 @@ class FormValidation {
      * @returns {*}
      */
     getError = fieldset => {
-        return fieldset.querySelector("." + this.form.errorClass);
+        return fieldset.querySelector("." + this.form.classes.error);
     };
 
     /**
@@ -352,7 +352,7 @@ class FormValidation {
     createError = input => {
         let error = document.createElement("div");
 
-        error.className = this.form.errorClass;
+        error.className = this.form.classes.error;
         error.setAttribute("role", "alert");
         error.innerText =
             input.dataset["msg"] !== undefined ? input.dataset["msg"] : this.form.errorFallbackMessage;
@@ -391,10 +391,10 @@ class FormValidation {
         let fieldset = this.getFieldset(input),
             error = this.getError(fieldset);
 
-        this.addClassOnElement(fieldset, this.form.fieldInvalidClass);
+        this.addClassOnElement(fieldset, this.form.classes.invalidField);
 
         if (error !== undefined && error !== null) {
-            this.removeClassOnElement(error, this.form.hideErrorClass);
+            this.removeClassOnElement(error, this.form.classes.hideError);
         } else {
             error = this.createError(input);
             this.insertError(input, error);
@@ -409,11 +409,11 @@ class FormValidation {
         let fieldset = this.getFieldset(input),
             error = this.getError(fieldset);
 
-        this.removeClassOnElement(fieldset, this.form.fieldInvalidClass);
+        this.removeClassOnElement(fieldset, this.form.classes.invalidField);
 
         if (error !== undefined && error !== null) {
-            this.removeClassOnElement(error, this.form.hideErrorClass);
-            this.addClassOnElement(error, this.form.hideErrorClass);
+            this.removeClassOnElement(error, this.form.classes.hideError);
+            this.addClassOnElement(error, this.form.classes.hideError);
         }
     };
 

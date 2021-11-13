@@ -1,6 +1,6 @@
 ![layout][logo-form-validation]
 
-[logo-form-validation]: src/logo.svg
+[logo-form-validation]: src/Images/logo.svg
 
 # FormValidation.js
 ![GitHub licenze](https://img.shields.io/github/license/Buddenbrock/form-validation.js?style=for-the-badge)
@@ -25,8 +25,10 @@ yarn add @buddenbrock/form-validation.js
 Take a look at the small example in the demo folder
 
 ### Add script bundle to your footer script block
+
 ```html
-<script src="./src/form-validation.js"></script>
+
+<script src="src/JavaScript/Controller/form-validation.js"></script>
 ```
 
 ### Add options
@@ -34,14 +36,16 @@ Define your options. These given options are defaults.
 ````javascript
     let formValidation = new FormValidation({
         // class settings
-        formValidationClass: "validate", // Define forms for validation
-        fieldInvalideClass: "invalid", // Add to fieled if input is not valid
-        fieldWrapperClass: "form-group", // Add input wrapper class
-        errorClass: "error",
-        hideErrorClass: "d-none",
+        classes: {
+            formValidation: "validate", // Define forms whitch shoul validate
+            invalidField: "invalid",  // Add to fieled if input is not valid
+            fieldWrapper: "form-group", // Add input wrapper class
+            error: "error", // Add error message class
+            hideError: "d-none", // Class for hiding error message
+        },
     
         // error messages
-        errorFallbackMessage: "wrong Input",
+        errorFallbackMessage: "Please check this field",
     
         // field expressions
         expression: {
