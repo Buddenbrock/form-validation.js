@@ -1,0 +1,58 @@
+.meta-nav {
+    background-color: var(--color-white-dark);
+    width: 100%;
+
+    .row {
+        text-align: right;
+        color: var(--color-grey-dark);
+        font-size: var(--font-size-s);
+
+        a {
+            color: var(--color-grey-dark);
+            font-weight: bold;
+            transition: all .6s ease-in-out;
+            position: relative;
+            padding-left: 1.5rem;
+            margin-left: .5rem;
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                content: '';
+                background-image: url('../Images/icon-github.svg');
+                width: 1rem;
+                height: 1rem;
+                display: inline-block;
+            }
+
+            &:hover,
+            &:focus {
+                color: var(--color-grey-light);
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.main-nav {
+    background-color: var(--color-white);
+    width: 100%;
+
+    .row {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        max-width: var(--max-content-width);
+        width: 95%;
+        margin: auto;
+
+        img {
+            margin-right: 1rem;
+            height: 40px;
+            width: auto;
+        }
+    }
+}
