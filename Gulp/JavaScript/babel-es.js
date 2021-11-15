@@ -1,8 +1,7 @@
 import {src, dest} from 'gulp';
 
-import browserify from 'gulp-browserify';
-import rename from 'gulp-rename';
-import babelify from 'babelify';
+import babel from 'gulp-babel';
+import concat from 'gulp-concat';
 import browserSync from 'browser-sync';
 
 import {tasks} from '../../build-config';
@@ -15,17 +14,25 @@ const browser = browserSync.create();
 * @Src   \/js\/**\/*.es6
 * */
 let compileES = () => {
-    return src(tasks.babel.srcs)
-        .pipe(browserify({
-            transform: ['babelify'],
-            presets: ['es2015'],
-            extension: '.es6'
-        }))
-      .pipe(rename({
-        extname: ".js"
-      }))
-        .pipe(dest(tasks.babel.dest))
-        .pipe(browser.stream());
+  return src(tasks.babel.srcs)
+    .pipe(babel({
+      compact: false,
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            'useBuiltIns': 'entry',
+            'corejs': 3,
+          }
+        ]
+      ],
+      plugins: [
+        '@babel/plugin-proposal-class-properties'
+      ]
+    }))
+    .pipe(concat(tasks.babel.concat))
+    .pipe(dest(tasks.babel.dest))
+    .pipe(browser.stream());
 };
 
 module.exports = compileES;

@@ -1,17 +1,17 @@
 const
   paths = {
-    src: './src',
-    dest: './public'
+    src: './Src',
+    dest: './Public'
   };
 
 let tasks = {
   handlebars: {
-    src: `${paths.src}/Hbs/Pages/*.hbs`,
+    src: `${paths.src}/Hbs/pages/*.hbs`,
     data: {},
     options: {
       batch: [
-        `${paths.src}/Hbs/Modules`,
-        `${paths.src}/Hbs/Partials`
+        `${paths.src}/Hbs/modules`,
+        `${paths.src}/Hbs/partials`
       ]
     },
     rename: {
@@ -37,26 +37,11 @@ let tasks = {
   },
   babel: {
     srcs: [
-      `${paths.src}/Hbs/Modules/**/*.es6`,
-      `${paths.src}/JavaScript/**/*.es6`,
+      `${paths.src}/Hbs/modules/**/*.es6`,
+      `${paths.src}/JavaScript/Controller/*.es6`,
       `${paths.src}/JavaScript/*.es6`
     ],
-    concat: 'app.js',
-    dest: `${paths.dest}/JavaScript`
-  },
-  typescript: {
-    srcs: [
-      `${paths.src}/TypeScript/**/*.ts`,
-    ],
-    concat: 'default.js',
-    dest: `${paths.dest}/JavaScript`
-  },
-  bundle: {
-    // Add path/file to include to bundle
-    srcs: [
-      //'./node_modules/hyphenopoly/Hyphenopoly_Loader.js',
-    ],
-    concat: 'bundle.js',
+    concat: 'formValidation.min.js',
     dest: `${paths.dest}/JavaScript`
   },
 };
