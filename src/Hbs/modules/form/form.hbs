@@ -1,96 +1,120 @@
 <form class="form validate">
+    {{#> sections/form-row}}{{#*inline "content"}}
 
-    <div class="form-row">
         <!-- Input without validation -->
-        {{> form/input id="1" type="text"}}
+        {{> form/field-input id="1" type="text"}}
 
         <!-- Input with validation rule required -->
-        {{> form/input id="2" type="text" rule="required"}}
-    </div>
+        {{> form/field-input id="2" type="text" rule="required"}}
 
-    <div class="form-row">
+    {{/inline}}{{/sections/form-row}}
+
+    {{#> sections/form-row}}{{#*inline "content"}}
+
         <!-- Input -> minlen -->
-        {{> form/input id="3" type="text" rule="minlen:5"}}
+        {{> form/field-input id="3" type="text" rule="minlen:5"}}
 
         <!-- Input -> phone -->
-        {{> form/input id="4" type="tel" rule="phone"}}
-    </div>
+        {{> form/field-input id="4" type="tel" rule="phone"}}
 
-    <div class="form-row">
+    {{/inline}}{{/sections/form-row}}
+
+    {{#> sections/form-row}}{{#*inline "content"}}
+
         <!-- Input -> email -->
-        {{> form/input id="5" type="email" rule="email"}}
+        {{> form/field-input id="5" type="email" rule="email"}}
 
         <!-- Input -> email verification -->
-        {{> form/input id="6" type="email" rule="email-verify"}}
+        {{> form/field-input id="6" type="email" rule="email-verify"}}
         <!-- missing validation -->
-    </div>
 
-    <div class="form-row">
+    {{/inline}}{{/sections/form-row}}
+
+    {{#> sections/form-row}}{{#*inline "content"}}
+
         <!-- Input -> checkbox -->
-        {{> form/checkbox id="7"}}
+        {{> form/field-checkbox id="7"}}
 
-    </div>
+    {{/inline}}{{/sections/form-row}}
 
-    <div class="form-row">
+    {{#> sections/form-row}}{{#*inline "content"}}
+
         <!-- Input -> checkbox group -->
-        {{> form/checkbox-group id="8"}}
+        {{> form/field-checkbox-group id="8"}}
 
         <!-- Input -> radiobox -->
-        {{> form/radio-group id="9"}}
-    </div>
+        {{> form/field-radio-group id="9"}}
 
-    <div class="form-row">
+    {{/inline}}{{/sections/form-row}}
+
+    {{#> sections/form-row}}{{#*inline "content"}}
+
         <!-- Select -->
-        {{> form/select id="10"}}
-    </div>
+        {{> form/field-select id="10"}}
 
-    <div class="form-row">
+    {{/inline}}{{/sections/form-row}}
+
+    {{#> sections/form-row}}{{#*inline "content"}}
+
         <!-- Input -> regExp -->
-        {{> form/input id="11" type="email" rule="regExp:/[^a-zA-Z]+/gm"}}
-    </div>
+        {{> form/field-input id="11" type="email" rule="regExp:/[^a-zA-Z]+/gm"}}
 
-    <div class="form-row">
+    {{/inline}}{{/sections/form-row}}
+
+    {{#> sections/form-row}}{{#*inline "content"}}
+
         <!-- Textarea -->
-        {{> form/textarea id="11" rule="required"}}
-    </div>
+        {{> form/field-textarea id="11" rule="required"}}
+
+    {{/inline}}{{/sections/form-row}}
+
+
 
     {{!--
-    <!-- missing validation -->
+        <!-- missing validation -->
         <div class="form-row">
-        <!-- Input -> date -->
-        <!-- Input -> datetime -->
-    </div>
+            <!-- Input -> date -->
+            <input type="date"/>
+            <!-- Input -> datetime -->
+            <input type="datetime"/>
+        </div>
 
-    <div class="form-row">
-        <!-- Input -> time -->
-        <!-- Input -> month -->
-    </div>
+        <div class="form-row">
+            <!-- Input -> time -->
+            <input type="time"/>
+            <!-- Input -> month -->
+            <input type="month"/>
+        </div>
 
-    <div class="form-row">
-        <!-- Input -> number -->
-        <!-- Input -> url -->
-    </div>
+        <div class="form-row">
+            <!-- Input -> number -->
+            <input type="number"/>
+            <!-- Input -> url -->
+            <input type="url"/>
+        </div>
 
-    <div class="form-row">
-        <input type="file">
-        <!-- Input -> file/image -->
-    </div>
+        <div class="form-row">
+            <input type="file">
+            <!-- Input -> file/image -->
+        </div>
 
-    <div class="form-row">
-        <input type="range"/>
-        <!-- Input -> range -->
-    </div>
+        <div class="form-row">
+            <input type="range"/>
+            <!-- Input -> range -->
+            <input type="color"/>
+            <!-- Input -> color -->
+        </div>
 
-    <div class="form-row">
-        <!-- Input -> password -->
-        <!-- Input -> password-verify -->
+        <div class="form-row">
+            <!-- Input -> password -->
+            <!-- Input -> password-verify -->
 
-        <!--
-            passwordMinLenght = 6,
-            passwordMaxLenght = 20,
-            passwordPattern = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><:{}[]",   @TODO: Convert to regex
-        -->
-    </div>
+            <!--
+                passwordMinLenght = 6,
+                passwordMaxLenght = 20,
+                passwordPattern = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><:{}[]",   @TODO: Convert to regex
+            -->
+        </div>
     --}}
 
     <div class="actions">
