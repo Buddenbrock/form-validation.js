@@ -1,0 +1,33 @@
+nav {
+    background-color: var(--color-white-dark);
+    width: 100%;
+
+    .row {
+        text-align: right;
+        color: var(--color-grey-dark);
+        font-size: var(--font-size-m);
+        padding: 0;
+
+        ul {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            list-style: none;
+        }
+
+        a {
+            color: var(--color-grey-dark);
+            font-size: var(--font-size-m);
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: all .6s ease-in-out;
+
+            &:hover,
+            &:focus {
+                background-color: var(--color-grey-light);
+                color: var(--color-white);
+                outline: 0;
+            }
+        }
+    }
+}

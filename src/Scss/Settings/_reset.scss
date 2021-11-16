@@ -1,0 +1,27 @@
+/*
+ * RESETS
+ */
+*,
+*::before,
+*::after {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    appearance: none;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    border: 0;
+    box-sizing: border-box;
+    font: inherit;
+    hyphens: auto;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+    text-size-adjust: 100%;
+    vertical-align: baseline;
+}
+
+html {
+    scroll-behavior: smooth;
+}

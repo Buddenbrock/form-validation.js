@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de-DE">
+
+<head>
+    <title>
+        {{#if title}}
+            {{title}}
+        {{else}}
+            FormValidation.js
+        {{/if}}
+    </title>
+    <link rel="shortcut icon" href="Images/favicon.ico" type="image/vnd.microsoft.icon">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="Css/formValidation.min.css">
+    <link rel="stylesheet" href="Css/demo.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<header>
+    {{> header/header}}
+</header>
+
+<main>
+    {{#> content-block}}
+    {{/content-block}}
+</main>
+
+<footer>
+    {{> footer/footer}}
+</footer>
+
+{{#> scripts-block}}
+    <script src="JavaScript/formValidation.min.js"></script>
+
+    <script>
+        let formValidation = new FormValidation();
+    </script>
+{{/scripts-block}}
+</body>
+
+</html>
