@@ -8,9 +8,9 @@ import {paths, tasks} from '../../build-config';
 
 const browser = browserSync.create();
 
-/*
-* @Desc     Compiles .hbs to .html and copy to public
-* */
+/**
+ * @desc Compiles .hbs to .html and copy to public
+ */
 let hbs = () => {
   return src(tasks.handlebars.src)
     .pipe(handlebars(tasks.handlebars.data, tasks.handlebars.options))

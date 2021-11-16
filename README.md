@@ -1,6 +1,6 @@
 ![layout][logo-form-validation]
 
-[logo-form-validation]: Src/Images/logo.svg
+[logo-form-validation]: src/Images/logo.svg
 
 # FormValidation.js
 ![GitHub licenze](https://img.shields.io/github/license/Buddenbrock/form-validation.js?style=for-the-badge)
@@ -27,7 +27,8 @@ Take a look at the small example in the demo folder
 ### Add script bundle to your footer script block
 
 ```html
-<script src="Src/JavaScript/Controller/formValidation.min.js"></script>
+
+<script src="src/JavaScript/Controller/formValidation.min.js"></script>
 ```
 
 ### Add options

@@ -2,19 +2,19 @@
 
 import {parallel, series, watch} from 'gulp';
 
-import hbs from './Gulp/Handlebars/handlebars';
-import babel from './Gulp/JavaScript/babel-es';
-import {browserSyncInit, browserSyncReload} from './Gulp/browserSync';
-import {scss, purge} from './Gulp/Css/css';
-import {image, video, font} from './Gulp/Copy/assets';
+import hbs from './gulp/Handlebars/handlebars';
+import babel from './gulp/JavaScript/babel-es';
+import {browserSyncInit, browserSyncReload} from './gulp/browserSync';
+import {scss, purge} from './gulp/Css/css';
+import {image, video, font} from './gulp/Copy/assets';
 
 let watchFiles = () => {
   watch([
-      './Src/Scss/**/*',
-      './Src/Hbs/**/*.scss'
+      './src/Scss/**/*',
+      './src/Hbs/**/*.scss'
   ], scss).on('change', browserSyncReload);
-  watch('./Src/Hbs/**/*', hbs).on('change', browserSyncReload);
-  watch('./Src/**/*.es6', babel).on('change', browserSyncReload);
+  watch('./src/Hbs/**/*', hbs).on('change', browserSyncReload);
+  watch('./src/**/*.es6', babel).on('change', browserSyncReload);
 };
 
 exports.babel = parallel(babel);

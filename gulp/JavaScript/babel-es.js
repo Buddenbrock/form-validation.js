@@ -8,11 +8,11 @@ import {tasks} from '../../build-config';
 
 const browser = browserSync.create();
 
-/*
-* @Desc   Compiles all .es6 files to js and copy to public
-* @Src   \/hbs\/**\/*.es6
-* @Src   \/js\/**\/*.es6
-* */
+/**
+ * @desc Compiles all .es6 files to js and copy to public
+ * @src \/hbs\/**\/*.es6
+ * @src \/js\/**\/*.es6
+ */
 let compileES = () => {
   return src(tasks.babel.srcs)
     .pipe(babel({

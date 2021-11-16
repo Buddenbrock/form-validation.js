@@ -4,9 +4,9 @@ import {paths} from '../build-config';
 
 const browser = browserSync.create();
 
-/*
-* @Desc     Init BorwserSync with UI
-* */
+/**
+ * @desc Init BorwserSync with UI
+ */
 let browserSyncInit = () => {
   browser.init({
     injectChanges: true,
@@ -17,9 +17,9 @@ let browserSyncInit = () => {
   });
 };
 
-/*
-* @Desc     Reload BrowserSync on change @watch-task
-* */
+/**
+ * @desc Reload BrowserSync on change @watch-task
+ */
 let browserSyncReload = () => {
   browser.reload();
 }

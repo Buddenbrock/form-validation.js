@@ -23,7 +23,7 @@
     "javascript"
   ],
   "files": [
-    "Public/"
+    "public/"
   ],
   "bugs": {
     "url": "https://github.com/Buddenbrock/form-validation.js/issues"

@@ -12,10 +12,10 @@ import {tasks} from '../../build-config';
 
 const browser = browserSync.create();
 
-/*
-* @Desc     converts scss to css and copy to public
-* @Series   copyVendorCss {function}
-* */
+/**
+ * @desc Converts scss to css and copy to public
+ * @series copyVendorCss {function}
+ */
 let scss = () => {
   return src(tasks.scss.src, {base: tasks.scss.base})
     .pipe(changed(tasks.scss.src))
@@ -36,6 +36,10 @@ let scss = () => {
 }
 
 // currently not used
+/**
+ * @desc
+ * @returns {*}
+ */
 let purge = () => {
     return src('public/Css/*.css')
         .pipe(purgecss({

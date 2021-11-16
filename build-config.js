@@ -1,7 +1,7 @@
 const
   paths = {
-    src: './Src',
-    dest: './Public'
+    src: './src',
+    dest: './public'
   };
 
 let tasks = {
