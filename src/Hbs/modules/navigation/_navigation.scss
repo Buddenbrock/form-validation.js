@@ -26,6 +26,7 @@ nav {
             &:focus {
                 background-color: var(--color-grey-light);
                 color: var(--color-white);
+                outline: 0;
             }
         }
     }
