@@ -68,7 +68,7 @@ Define your options. These given options are defaults.
 
 ### Options for data-rule
 - required
-- minlen
+- minlen:X
 - email
 - phone
 - checked
@@ -82,6 +82,11 @@ Define your options. These given options are defaults.
 <!-- @TODO: Add infos for using TYPO3-EXT:recaptcha -->
 
 For DOM syntax of fields take a look into demo page
+
+## Coming soon
+- Better and more detailed documentation of use
+- Definition of required fields independent of the validation
+- New validation rules for friendly captcha, email verification, url, date, datetime, time, month, number, range, color, password, password verification and files
 
 ## Donation
 This is free, open-source software. If you'd like to support the development of future projects, or say thanks for this one, you can [donate](https://www.paypal.me/buddenbrock).
