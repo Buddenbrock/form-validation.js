@@ -27,8 +27,7 @@ Take a look at the small example in the demo folder
 ### Add script bundle to your footer script block
 
 ```html
-
-<script src="src/JavaScript/Controller/form-validation.js"></script>
+<script src="Src/JavaScript/Controller/formValidation.min.js"></script>
 ```
 
 ### Add options
@@ -43,26 +42,26 @@ Define your options. These given options are defaults.
             error: "error", // Add error message class
             hideError: "d-none", // Class for hiding error message
         },
-    
+
         // error messages
         errorFallbackMessage: "Please check this field",
-    
+
         // field expressions
         expression: {
             email: /^[^\s()<>@,;:\/]+@\w[\w.-]+\.[a-z]{2,}$/i,
             phone: /^[0-9]{2,5}( )?([0-9]{4,9})$/i,
             password: {
-                passwordEx: /^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><:{}[]$/i,
+                passwordExp: /^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><:{}[]$/i,
                 passwordMinLen: 6,
                 passwordMaxLen: 20,
             },
         },
-    
+
         // google recaptcha
         recaptcha: {
             disabled: false, // Enable/Disable validation for google recaptcha
             class: "g-recaptcha",
-        } 
+        }
     });
 ````
 
