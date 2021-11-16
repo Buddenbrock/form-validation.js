@@ -1,6 +1,6 @@
 {
   "name": "@buddenbrock/form-validation.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Javascript for adding a frontend form validation",
   "main": "gulpfile.babel.js",
   "readme": "README.md",
