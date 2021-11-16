@@ -74,7 +74,7 @@ Define your options. These given options are defaults.
 - checked
 - radio
 - selected
-- regexp
+- regExp
 - recaptcha
 
 ### DOM-Syntax of input fields
