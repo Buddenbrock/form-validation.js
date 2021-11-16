@@ -1,6 +1,6 @@
 {
   "name": "@buddenbrock/form-validation.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Javascript for adding a frontend form validation",
   "main": "gulpfile.babel.js",
   "readme": "README.md",
@@ -28,14 +28,7 @@
   "bugs": {
     "url": "https://github.com/Buddenbrock/form-validation.js/issues"
   },
-  "dependencies": {
-		"gulp-babel": "^8.0.0",
-		"gulp-purgecss": "^4.0.0",
-		"modularscale-sass": "^2.1.1",
-		"natives": "^1.1.6",
-		"normalize.css": "^5.0.0",
-		"typi": "^2.3.0"
-  },
+  "dependencies": {},
   "devDependencies": {
 		"@babel/core": "^7.9.6",
 		"@babel/plugin-proposal-class-properties": "^7.8.3",
@@ -55,7 +48,13 @@
 		"gulp-sass": "^4.0.2",
 		"node-normalize-scss": "^8.0.1",
 		"require-dir": "^1.2.0",
-		"through2": "^4.0.2"
+		"through2": "^4.0.2",
+		"gulp-babel": "^8.0.0",
+		"gulp-purgecss": "^4.0.0",
+		"modularscale-sass": "^2.1.1",
+		"natives": "^1.1.6",
+		"normalize.css": "^5.0.0",
+		"typi": "^2.3.0"
   },
   "babel": {
     "presets": [
