@@ -3,10 +3,10 @@
 [logo-form-validation]: src/Images/logo.svg
 
 # FormValidation.js
-![GitHub licenze](https://img.shields.io/github/license/Buddenbrock/form-validation.js?style=for-the-badge)
-![GitHub release](https://img.shields.io/github/package-json/version/Buddenbrock/form-validation.js?style=for-the-badge)
+![GitHub licenze](https://img.shields.io/github/license/buddenbrock/form-validation.js?style=for-the-badge)
+![GitHub release](https://img.shields.io/github/package-json/version/buddenbrock/form-validation.js?style=for-the-badge)
 ![Last commit](https://img.shields.io/github/last-commit/buddenbrock/form-validation.js?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/Buddenbrock/form-validation.js?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/buddenbrock/form-validation.js?style=for-the-badge)
 
 Javascript for adding a frontend form validation
 
@@ -28,7 +28,7 @@ Take a look at the small example in the demo folder
 
 ```html
 
-<script src="src/JavaScript/Controller/formValidation.min.js"></script>
+<script src="node_modules/@buddenbrock/form-validation.js/public/JavaScript/formValidation.min.js"></script>
 ```
 
 ### Add options
@@ -78,8 +78,8 @@ Define your options. These given options are defaults.
 - recaptcha
 
 ### DOM-Syntax of input fields
-- @TODO: Add dom syntax
-- @TODO: Add infos for using TYPO3-EXT:recaptcha
+<!-- @TODO: Add dom syntax -->
+<!-- @TODO: Add infos for using TYPO3-EXT:recaptcha -->
 
 For DOM syntax of fields take a look into demo page
 
