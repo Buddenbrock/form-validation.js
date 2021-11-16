@@ -1,6 +1,6 @@
 ![layout][logo-form-validation]
 
-[logo-form-validation]: src/logo.svg
+[logo-form-validation]: src/Images/logo.svg
 
 # FormValidation.js
 ![GitHub licenze](https://img.shields.io/github/license/Buddenbrock/form-validation.js?style=for-the-badge)
@@ -22,29 +22,47 @@ yarn add @buddenbrock/form-validation.js
 ```
 
 ## How to use
+Take a look at the small example in the demo folder
 
 ### Add script bundle to your footer script block
+
 ```html
-<script src="./src/form-validation.js"></script>
+
+<script src="src/JavaScript/Controller/formValidation.min.js"></script>
 ```
 
 ### Add options
 Define your options. These given options are defaults.
 ````javascript
     let formValidation = new FormValidation({
-        formValidationClass: "validate", // Define forms for validation
-        filedInvalideClass: "invalid", // Add to filed if input is not valid
-    
+        // class settings
+        classes: {
+            formValidation: "validate", // Define forms whitch shoul validate
+            invalidField: "invalid",  // Add to fieled if input is not valid
+            fieldWrapper: "form-group", // Add input wrapper class
+            error: "error", // Add error message class
+            hideError: "d-none", // Class for hiding error message
+        },
+
+        // error messages
+        errorFallbackMessage: "Please check this field",
+
         // field expressions
-        emailExp: /^[^\s()<>@,;:\/]+@\w[\w.-]+\.[a-z]{2,}$/i,
-        phoneExp: /^[0-9]{2,5}( )?([0-9]{4,9})$/i,
-        passwordExp: /^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><:{}[]$/i,
-        passwordMinLen: 6,
-        passwordMaxLen: 20,
-    
-        // Google recaptcha
-        recaptcha: true, // Enable/Disable validation for google recaptcha
-        recaptchaClass: ".g-recaptcha",
+        expression: {
+            email: /^[^\s()<>@,;:\/]+@\w[\w.-]+\.[a-z]{2,}$/i,
+            phone: /^[0-9]{2,5}( )?([0-9]{4,9})$/i,
+            password: {
+                passwordExp: /^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+?><:{}[]$/i,
+                passwordMinLen: 6,
+                passwordMaxLen: 20,
+            },
+        },
+
+        // google recaptcha
+        recaptcha: {
+            disabled: false, // Enable/Disable validation for google recaptcha
+            class: "g-recaptcha",
+        }
     });
 ````
 
@@ -58,6 +76,12 @@ Define your options. These given options are defaults.
 - selected
 - regexp
 - recaptcha
+
+### DOM-Syntax of input fields
+- @TODO: Add dom syntax
+- @TODO: Add infos for using TYPO3-EXT:recaptcha
+
+For DOM syntax of fields take a look into demo page
 
 ## Donation
 This is free, open-source software. If you'd like to support the development of future projects, or say thanks for this one, you can [donate](https://www.paypal.me/buddenbrock).

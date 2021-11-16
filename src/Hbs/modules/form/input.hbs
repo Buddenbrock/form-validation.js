@@ -1,0 +1,11 @@
+<div class="form-group">
+    <label class="control-label" for="field-{{id}}">
+        Field {{id}}
+        {{#if rule}}
+            <small>
+                rule: {{rule}}
+            </small>
+        {{/if}}
+    </label>
+    <input class="form-control" id="field-{{id}}" type="{{type}}" name="field-{{id}}" value="" {{#if rule}}data-rule="{{rule}}" data-msg="Error message"{{/if}}/>
+</div>

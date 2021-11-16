@@ -1,0 +1,24 @@
+/**
+ * This media-queries requires a mobile-first programming concept.
+ * useage: @media #{variable} {...}
+ */
+
+/**
+ * Small devices (landscape phones, 576px and up)
+ */
+$mq-small: 'only screen and (min-width: 36em)';
+
+/**
+ * Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint
+ */
+$mq-medium: 'only screen and (min-width: 48em)';
+
+/**
+ * Large devices (desktops, 992px and up)
+ */
+$mq-large: 'only screen and (min-width: 62em)';
+
+/**
+ * Extra large devices (large desktops, 1200px and up)
+ */
+$mq-extra-large: 'only screen and (min-width: 75em)';
