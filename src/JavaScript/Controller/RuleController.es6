@@ -61,7 +61,7 @@ class RuleController {
                     inputError = this.ruleSelected(input, exp, inputError);
                     break;
 
-                case "regexp":
+                case "regExp":
                     inputError = this.ruleExp(input, exp, inputError);
                     break;
 
