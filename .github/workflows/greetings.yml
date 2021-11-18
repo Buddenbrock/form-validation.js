@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Hey there. Thank you for supporting this project. If possible, I will try to solve your issue as soon as possible. Greetings Dirk Buddenbrock'
+        pr-message: 'Hey there. Thank yor for supporting this project. If possible, I will review your pull request and add them in the next release. Greetings Dirk Buddenbrock'
