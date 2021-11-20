@@ -4,7 +4,11 @@ class FormValidation {
         if (!options.expression) { options.expression = {} }
         if (!options.expression.password) { options.expression.password = {} }
         if (!options.recaptcha) { options.recaptcha = {} }
+        if (!options.friendlyCaptcha) { options.friendlyCaptcha = {} }
 
+        /**
+         * @type {{friendlyCaptcha: {inputClassName: string, disabled: boolean, class: string}, expression: {password: {passwordMinLen: number, passwordMaxLen: number, passwordExp: RegExp}, phone: RegExp, email: RegExp}, classes: {invalidField: string, hideError: string, fieldWrapper: string, error: string, formValidation: string}, errorFallbackMessage: string, recaptcha: {disabled: boolean, class: string}}}
+         */
         this.form = {
             // class settings
             classes: {
@@ -33,10 +37,23 @@ class FormValidation {
             recaptcha: {
                 disabled: options.recaptcha.disabled || true,
                 className: options.recaptcha.className || "g-recaptcha"
+            },
+
+            // friendly captcha
+            friendlyCaptcha: {
+                disabled: options.friendlyCaptcha.disabled || true,
+                className: options.friendlyCaptcha.className || "frc-captcha",
+                inputClassName: options.friendlyCaptcha.inputClassName || "frc-captcha-solution"
             }
         }
 
-        if (document.querySelector('.' + this.form.classes.formValidation)) {
+        if (!this.form.friendlyCaptcha.disabled) {
+            if (document.querySelector('.' + this.form.classes.formValidation)) {
+                setTimeout(() => {
+                    this.initValidation();
+                }, 1000);
+            }
+        } else {
             this.initValidation();
         }
     }
@@ -70,6 +87,13 @@ class FormValidation {
          */
         if (!this.form.recaptcha.disabled && document.querySelector('.' + this.form.recaptcha.className)) {
             new RecaptchaController(this.form).initRecaptcha();
+        }
+
+        /**
+         * @desc init friendly captche
+         */
+        if (!this.form.friendlyCaptcha.disabled && document.querySelector('.' + this.form.friendlyCaptcha.className)) {
+            new FriendlyCaptchaController(this.form).initFriendlyCaptcha();
         }
 
         /**

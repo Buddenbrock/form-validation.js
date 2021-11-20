@@ -62,6 +62,13 @@ Define your options. These given options are defaults.
         recaptcha: {
             disabled: true, // Enable/Disable validation for google recaptcha
             className: "g-recaptcha",
+        },
+
+        // friendly captcha
+        friendlyCaptcha: {
+            disabled: true, // Enable/Disable validation for friendly recaptcha
+            className: "frc-captcha",
+            inputClassName: "frc-captcha-solution"
         }
     });
 ````
@@ -76,6 +83,7 @@ Define your options. These given options are defaults.
 - selected
 - regExp
 - recaptcha
+- friendlyCaptcha
 
 ### DOM-Syntax of input fields
 <!-- @TODO: Add dom syntax -->

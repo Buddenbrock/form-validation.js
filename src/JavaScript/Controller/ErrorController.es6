@@ -42,8 +42,11 @@ class ErrorController {
             radio = input.dataset["rule"] === "radio",
             requiredBox = input.dataset["rule"] === "required",
             recaptcha = input.dataset["rule"] === "recaptcha",
+            friendlyCaptcha = input.dataset["rule"] === "friendlycaptcha";
 
-        if (input.nextElementSibling) {
+        if (friendlyCaptcha) {
+            element = input.parentElement;
+        } else if (input.nextElementSibling) {
             if (checkbox || radio) {
                 element = input.parentElement;
             } else if (requiredBox || recaptcha) {
