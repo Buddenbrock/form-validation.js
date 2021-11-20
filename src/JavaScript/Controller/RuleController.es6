@@ -1,4 +1,7 @@
 class RuleController {
+    /**
+     * @param options
+     */
     constructor(options = {}) {
       this.form = options;
     }

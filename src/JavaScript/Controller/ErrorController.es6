@@ -1,4 +1,7 @@
 class ErrorController {
+    /**
+     * @param options
+     */
     constructor(options = {}) {
         this.form = options;
     }
@@ -6,7 +9,7 @@ class ErrorController {
     /**
      * @desc get error message wrapper inside given fieldset
      * @param fieldset
-     * @returns {*}
+     * @returns {any}
      */
     getError = fieldset => {
         return fieldset.querySelector("." + this.form.classes.error);
@@ -38,7 +41,7 @@ class ErrorController {
             checkbox = input.dataset["rule"] === "checked",
             radio = input.dataset["rule"] === "radio",
             requiredBox = input.dataset["rule"] === "required",
-            recaptcha = input.dataset["rule"] === "recaptcha";
+            recaptcha = input.dataset["rule"] === "recaptcha",
 
         if (input.nextElementSibling) {
             if (checkbox || radio) {

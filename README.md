@@ -60,8 +60,8 @@ Define your options. These given options are defaults.
 
         // google recaptcha
         recaptcha: {
-            disabled: false, // Enable/Disable validation for google recaptcha
-            class: "g-recaptcha",
+            disabled: true, // Enable/Disable validation for google recaptcha
+            className: "g-recaptcha",
         }
     });
 ````
