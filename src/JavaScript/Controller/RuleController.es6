@@ -1,4 +1,7 @@
 class RuleController {
+    /**
+     * @param options
+     */
     constructor(options = {}) {
       this.form = options;
     }
@@ -67,6 +70,10 @@ class RuleController {
 
                 case "recaptcha":
                     inputError = this.ruleRequired(input, exp, inputError);
+                    break;
+
+                case 'friendlyCaptcha':
+                    inputError = this.ruleFriendlyCaptcha(input, inputError);
                     break;
             }
 
@@ -210,4 +217,26 @@ class RuleController {
 
         return inputError;
     };
+
+    /**
+     * @desc checks given field if value is valid value
+     * @param input
+     * @param inputError
+     * @returns {boolean}
+     */
+    ruleFriendlyCaptcha = (input, inputError) => {
+        let value = input.value;
+
+        if (
+            value === '' ||
+            value === '.UNFINISHED' ||
+            value === '.ERROR' ||
+            value === '.FETCHING' ||
+            value === '.UNSTARTED'
+        ) {
+            inputError = true;
+        }
+
+        return inputError;
+    }
 }

@@ -1,7 +1,34 @@
 class HelperController {
+    /**
+     * @param options
+     */
     constructor(options = {}) {
         this.form = options;
     }
+
+    /**
+     * @desc get form element
+     * @returns {Element}
+     */
+    getForm = () => {
+        return document.querySelector('.' + this.form.classes.formValidation);
+    }
+
+    /**
+     * @desc get input fields
+     * @returns {NodeListOf<HTMLElementTagNameMap[string]> | NodeListOf<Element> | NodeListOf<SVGElementTagNameMap[string]>}
+     */
+    getInputFields = () => {
+        return this.form.element.querySelectorAll('input, textarea, select');
+    }
+
+    /**
+     * @desc get submit button
+     * @returns {any}
+     */
+    getSubmitButton = () => {
+        return this.form.element.querySelector('button[type="submit"]');
+    };
 
     /**
      * @desc get fieldset of given field
