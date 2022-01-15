@@ -1,7 +1,3 @@
-![layout][logo-form-validation]
-
-[logo-form-validation]: src/Images/logo.svg
-
 # FormValidation.js
 ![GitHub licenze](https://img.shields.io/github/license/buddenbrock/form-validation.js?style=for-the-badge)
 ![GitHub release](https://img.shields.io/github/package-json/version/buddenbrock/form-validation.js?style=for-the-badge)
