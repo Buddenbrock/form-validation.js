@@ -4,7 +4,7 @@
 ![Last commit](https://img.shields.io/github/last-commit/buddenbrock/form-validation.js?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/buddenbrock/form-validation.js?style=for-the-badge)
 
-Javascript for adding a frontend form validation
+JavaScript for adding a frontend form validation
 
 ## Installation
 ### Using npm
