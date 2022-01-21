@@ -2,9 +2,8 @@ name: Deploy-Gh-Page
 
 on:
   push:
-    release:
-      types:
-        - released
+    tags:
+      - '*'
 
 jobs:
   deploy:
