@@ -1,43 +1,43 @@
 {
   "name": "@buddenbrock/form-validation.js",
   "description": "Javascript for adding a frontend form validation",
-	"version": "1.1.0",
-	"keywords": [
-		"form",
-		"validation",
-		"javascript"
-	],
-	"homepage": "https://buddenbrock.github.io/form-validation.js/",
-	"bugs": {
-		"url": "https://github.com/Buddenbrock/form-validation.js/issues",
-		"email": "git@dirk-buddenbrock.de"
-	},
-	"license": "GPL-3.0",
-	"author": {
-		"name": "Dirk Buddenbrock",
-		"email": "git@dirk-buddenbrock.de",
-		"url": "https://www.dirk-buddenbrock.de"
-	},
-	"contributors": [
-		{
-			"name": "CP/COMPARTNER",
-			"url": "https://www.cp-compartner.de"
-		}
-	],
-	"funding": {
-		"type": "PayPal",
-		"url": "https://www.paypal.me/buddenbrock"
-	},
-	"files": [
-		"public/"
-	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Buddenbrock/form-validation.js.git"
-	},
-	"readme": "README.md",
+  "version": "1.1.0",
+  "keywords": [
+    "form",
+    "validation",
+    "javascript"
+  ],
+  "homepage": "https://buddenbrock.github.io/form-validation.js/",
+  "bugs": {
+    "url": "https://github.com/Buddenbrock/form-validation.js/issues",
+    "email": "git@dirk-buddenbrock.de"
+  },
+  "license": "GPL-3.0",
+  "author": {
+    "name": "Dirk Buddenbrock",
+    "email": "git@dirk-buddenbrock.de",
+    "url": "https://www.dirk-buddenbrock.de"
+  },
+  "contributors": [
+    {
+      "name": "CP/COMPARTNER",
+      "url": "https://www.cp-compartner.de"
+    }
+  ],
+  "funding": {
+    "type": "PayPal",
+    "url": "https://www.paypal.me/buddenbrock"
+  },
+  "files": [
+    "public/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Buddenbrock/form-validation.js.git"
+  },
+  "readme": "README.md",
   "main": "gulpfile.babel.js",
-	"devDependencies": {
+  "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/polyfill": "^7.11.5",
