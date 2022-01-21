@@ -57,7 +57,7 @@ yarn add @buddenbrock/form-validation.js
 
 #### Using CDN
 ```html
-<script src="https://unpkg.com/@buddenbrock/ad-lightbox.js@0.1.2/public/JavaScript/formValidation.min.js"></script>
+<script src="https://unpkg.com/@buddenbrock/form-validation.js@1.1.1/public/JavaScript/formValidation.min.js"></script>
 ```
 
 ## How to use
