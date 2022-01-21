@@ -1,7 +1,7 @@
 {
   "name": "@buddenbrock/form-validation.js",
   "description": "Javascript for adding a frontend form validation",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "keywords": [
     "form",
     "validation",
