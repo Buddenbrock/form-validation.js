@@ -1,10 +1,18 @@
 {
   "name": "@buddenbrock/form-validation.js",
-  "version": "1.1.0",
   "description": "Javascript for adding a frontend form validation",
-  "main": "gulpfile.babel.js",
-  "readme": "README.md",
-  "repository": "git@github.com/Buddenbrock/form-validation.js.git",
+  "version": "1.1.1",
+  "keywords": [
+    "form",
+    "validation",
+    "javascript"
+  ],
+  "homepage": "https://buddenbrock.github.io/form-validation.js/",
+  "bugs": {
+    "url": "https://github.com/Buddenbrock/form-validation.js/issues",
+    "email": "git@dirk-buddenbrock.de"
+  },
+  "license": "GPL-3.0",
   "author": {
     "name": "Dirk Buddenbrock",
     "email": "git@dirk-buddenbrock.de",
@@ -16,45 +24,45 @@
       "url": "https://www.cp-compartner.de"
     }
   ],
-  "license": "GPL-3.0",
-  "keywords": [
-    "form",
-    "validation",
-    "javascript"
-  ],
+  "funding": {
+    "type": "PayPal",
+    "url": "https://www.paypal.me/buddenbrock"
+  },
   "files": [
     "public/"
   ],
-  "bugs": {
-    "url": "https://github.com/Buddenbrock/form-validation.js/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Buddenbrock/form-validation.js.git"
   },
-  "dependencies": {},
+  "readme": "README.md",
+  "main": "gulpfile.babel.js",
   "devDependencies": {
-		"@babel/core": "^7.9.6",
-		"@babel/plugin-proposal-class-properties": "^7.8.3",
-		"@babel/polyfill": "^7.11.5",
-		"@babel/preset-env": "^7.9.6",
-		"@babel/register": "^7.9.0",
-		"autoprefixer": "^9.7.6",
-		"browser-sync": "^2.26.7",
-		"core-js": "3",
-		"gulp": "^4.0.2",
-		"gulp-autoprefixer": "^6.1.0",
-		"gulp-changed": "^4.0.0",
-		"gulp-compile-handlebars": "^0.6.1",
-		"gulp-concat": "^2.6.1",
-		"gulp-cssnano": "^2.1.3",
-		"gulp-rename": "^1.4.0",
-		"gulp-sass": "^4.0.2",
-		"node-normalize-scss": "^8.0.1",
-		"require-dir": "^1.2.0",
-		"through2": "^4.0.2",
-		"gulp-babel": "^8.0.0",
-		"gulp-purgecss": "^4.0.0",
-		"modularscale-sass": "^2.1.1",
-		"natives": "^1.1.6",
-		"normalize.css": "^5.0.0",
-		"typi": "^2.3.0"
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/polyfill": "^7.11.5",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/register": "^7.9.0",
+    "autoprefixer": "^9.7.6",
+    "browser-sync": "^2.26.7",
+    "core-js": "3",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-changed": "^4.0.0",
+    "gulp-compile-handlebars": "^0.6.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-purgecss": "^4.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "modularscale-sass": "^2.1.1",
+    "natives": "^1.1.6",
+    "node-normalize-scss": "^8.0.1",
+    "normalize.css": "^5.0.0",
+    "require-dir": "^1.2.0",
+    "through2": "^4.0.2",
+    "typi": "^2.3.0"
   },
   "babel": {
     "presets": [
