@@ -133,6 +133,24 @@ class RuleController {
     };
 
     /**
+     * @desc checks given field if value matches given email regEx and matches other mail field
+     * @param input
+     * @param inputError
+     * @returns {boolean}
+     *
+     ruleConfirmEmail = (input, inputError) => {
+        let value = input.parentElement.previousElementSibling.querySelector('input[type="text"]').value,
+            confirmValue = input.value;
+
+        if (!this.form.emailExp.test(input.value) || (value !== confirmValue)) {
+            inputError = true;
+        }
+
+        return inputError;
+    }
+     */
+
+    /**
      * @desc checks given field if value matches given phone number regEx
      * @param input
      * @param exp
